@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First AR App!</title>
+    <!-- include A-Frame -->
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <!-- include ar.js for A-Frame -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body>
+
+    <a-scene embedded arjs>
+      <a-assets>
+        <a-asset-item id="figure" src="./assets/codey3d2.gltf"></a-asset-item>
+      </a-assets>
+
+      <!-- define the marker -->
+      <a-marker preset="hiro">
+        <!-- create your content here. -->
+        <!-- box with red flat color   -->
+         <!-- <a-box position='0 0.5 0' color='#00f' material="shader: flat; color: red" foo></a-box> -->
+
+        <!-- add text -->
+        <!--<a-text value="Hello, World!"></a-text> -->
+
+        <!-- Adding a GLTF file to an AR Project-->
+
+         <a-gltf-model
+          src="#figure"
+          position="0 0 0"
+          rotation="0 5 0"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+        ></a-gltf-model> 
+
+        <!-- Primitive with animation    -->
+        <!--         <a-box position="0 0 0" animation="property: position; to: 1 0 0; dur: 1500; easing: linear"></a-box> -->
+        <!--         <a-box rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+            <a-entity position="0 0 0"></a-entity>
+        </a-box> -->
+      </a-marker>
+      <!-- define a camera which will move according to the marker position -->
+      <a-entity camera></a-entity>
+    </a-scene>
+
+  </body>
+</html>
